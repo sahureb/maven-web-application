@@ -1,11 +1,11 @@
 pipeline{
 
 agent any
+input message: 'Do you want to run this Job?', parameters: [password(defaultValue: '', name: 'sNow Password'), choice(choices: ['Lock', 'Unlock', 'XXXXXX', 'CCCCCC', 'YYYYY'], name: 'Type of change creation:'), string('Start Date Time')]
 
 tools {
     maven '3.8.5' 
   }
-
 triggers{
 pollSCM('* * * * *')
 }
